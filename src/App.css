@@ -56,7 +56,7 @@ span.blue {
 
 @media (min-width: 769px) {
     .app-content h1 {
-        font-size: inherit;
+        font-size: 30px;
     }
     .square {
         height: 75px;
