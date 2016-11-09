@@ -4,34 +4,39 @@ import { levels, Level } from './Level';
 export class Game extends React.Component {
     constructor(){
         super();
-        this.nextLevel = this.nextLevel.bind(this);
+        this.state = {
+            currentLevelId: 0
+        }
     }
     getCurrentLevelId() {
-        return this.props.levelId;
+        return this.state.currentLevelId;
     }
     previousLevel() {
-        if (this.props.levelId > 0) {
-            this.refs[`level-${this.props.levelId + 1}`].setSate({
+        const levelId = this.getCurrentLevelId();
+        if (levelId > 0) {
+            this.setState({
+                currentLevelId: levelId - 1
+            });
+            this.refs[`level-${levelId + 1}`].setState({
                 visible: false
             });
-            this.refs[`level-${this.props.levelId}`].setSate({
+            this.refs[`level-${levelId}`].setState({
                 visible: true
             });
-            this.props.levelId--;
         }
     }
     nextLevel() {
-        if (this.props.levelId < 3) {  // TODO get last completed level
-            const current = this.refs[`level-${this.props.levelId + 1}`];
-            const next = this.refs[`level-${this.props.levelId + 2}`];
-            console.log(next);
-            current.setSate({
+        const levelId = this.getCurrentLevelId();
+        if (levelId < 3) {
+            this.setState({
+                currentLevelId: levelId + 1
+            });
+            this.refs[`level-${levelId + 1}`].setState({
                 visible: false
             });
-            next.setSate({
+            this.refs[`level-${levelId + 2}`].setState({
                 visible: true
             });
-            this.props.levelId++;
         }
     }
     renderLevels() {
@@ -49,15 +54,15 @@ export class Game extends React.Component {
         })
     }
     render() {
-        let disablePrevious = this.props.levelId === 0 && 'disabled';
-        let disableNext = this.props.levelId === 3 && 'disabled'; // TODO get last completed level
+        let disablePrevious = this.getCurrentLevelId() === 0 && 'disabled';
+        let disableNext = this.getCurrentLevelId() === 3 && 'disabled'; // TODO get last completed level
         return (
             <div className="game">
                 <h1>Everything must be <span className="blue">colorful !</span></h1>
                 {this.renderLevels()}
                 <div className="btn-group" role="group">
                     <button type="button" className="btn btn-default" disabled={disablePrevious} onClick={(e) => this.previousLevel(e)}>&#x2190;</button>
-                    <span className="btn btn-default btn-fake">Level {this.props.levelId + 1}</span>
+                    <span className="btn btn-default btn-fake">Level {this.state.currentLevelId + 1}</span>
                     <button type="button" className="btn btn-default" disabled={disableNext} onClick={(e) => this.nextLevel(e)}>&#x2192;</button>
                 </div>
             </div>

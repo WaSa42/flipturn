@@ -7,7 +7,7 @@ class App extends Component {
         return (
             <div className="app">
                 <div className="app-content">
-                    <Game levelId={0}/>
+                    <Game/>
                 </div>
             </div>
         );
