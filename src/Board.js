@@ -1,6 +1,7 @@
 import React from 'react';
 import { _ } from 'underscore';
 import { Square } from './Square';
+import './Board.css';
 
 export class Board extends React.Component {
     handleSquareTurn(square) {
@@ -43,6 +44,7 @@ export class Board extends React.Component {
             ref={`square-${rowIndex}-${index}`}
             key={`row-${rowIndex}-col-${index}`}
             turn={this.handleSquareTurn.bind(this)}
+            levelId={this.props.levelId}
         />);
     }
     render() {

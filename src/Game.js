@@ -1,5 +1,7 @@
 import React from 'react';
 import { levels, Level } from './Level';
+import { colors } from './Square';
+import './Game.css';
 
 export class Game extends React.Component {
     constructor(){
@@ -27,9 +29,9 @@ export class Game extends React.Component {
     }
     nextLevel() {
         const levelId = this.getCurrentLevelId();
-        if (levelId < 3) {
+        if (levelId < levels.length) {
             this.setState({
-                currentLevelId: levelId + 1
+                currentLevelId: levelId + 1,
             });
             this.refs[`level-${levelId + 1}`].setState({
                 visible: false
@@ -39,31 +41,52 @@ export class Game extends React.Component {
             });
         }
     }
+    showStar (levelCompleted) {
+        this.setState({
+            star: levelCompleted ? 'visible' : 'hidden'
+        })
+    }
     renderLevels() {
         return levels.map((level, index) => {
             return <Level
                 index={index}
-                name={level.name}
                 board={level.board}
                 ref={`level-${index + 1}`}
                 key={`level-${index + 1}`}
                 getCurrentLevelId={this.getCurrentLevelId.bind(this)}
                 previousLevel={this.previousLevel.bind(this)}
                 nextLevel={this.nextLevel.bind(this)}
+                showStar={this.showStar.bind(this)}
             />
         })
     }
     render() {
         let disablePrevious = this.getCurrentLevelId() === 0 && 'disabled';
-        let disableNext = this.getCurrentLevelId() === 3 && 'disabled'; // TODO get last completed level
+        let disableNext = this.getCurrentLevelId() === levels.length - 1 && 'disabled';
         return (
             <div className="game">
-                <h1>Everything must be <span className="blue">colorful !</span></h1>
+                <h1>Everything must be <span className={colors[this.state.currentLevelId%colors.length]}>colorful!</span></h1>
                 {this.renderLevels()}
                 <div className="btn-group" role="group">
-                    <button type="button" className="btn btn-default" disabled={disablePrevious} onClick={(e) => this.previousLevel(e)}>&#x2190;</button>
-                    <span className="btn btn-default btn-fake">Level {this.state.currentLevelId + 1}</span>
-                    <button type="button" className="btn btn-default" disabled={disableNext} onClick={(e) => this.nextLevel(e)}>&#x2192;</button>
+                    <button
+                        type="button"
+                        className="btn btn-default"
+                        disabled={disablePrevious}
+                        onClick={(e) => this.previousLevel(e)}
+                    >
+                        &#x2190;
+                    </button>
+                    <button className="btn btn-default level-name">
+                        Level {this.state.currentLevelId + 1}
+                    </button>
+                    <button
+                        type="button"
+                        className="btn btn-default"
+                        disabled={disableNext}
+                        onClick={(e) => this.nextLevel(e)}
+                    >
+                        &#x2192;
+                    </button>
                 </div>
             </div>
         );

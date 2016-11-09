@@ -37,6 +37,7 @@ export class Level extends React.Component {
             <div className={`level ${!this.state.visible && 'hidden'}`}>
                 <Board
                     level={this}
+                    levelId={this.props.getCurrentLevelId()}
                     handleSuccess={this.handleSuccess.bind(this)}
                     board={this.props.board}
                 />
@@ -46,7 +47,74 @@ export class Level extends React.Component {
 }
 
 export const levels = [{
-    name: 'Level 1',
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    }]
+},{
+    board: [{
+        squares: [{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty'
+        }]
+    }]
+},{
     board: [{
         squares: [{
             type: 'empty'
@@ -77,8 +145,42 @@ export const levels = [{
             type: 'empty'
         }]
     }]
-}, {
-    name: 'Level 12',
+},{
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    }]
+},{
     board: [{
         squares: [{
             type: 'plain',
@@ -113,8 +215,40 @@ export const levels = [{
             turn: 'off'
         }]
     }]
-}, {
-    name: 'Level 3',
+},{
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'empty',
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty',
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    }]
+},{
     board: [{
         squares: [{
             type: 'plain',
@@ -163,8 +297,106 @@ export const levels = [{
             turn: 'on'
         }]
     }]
-}, {
-    name: 'Level 4',
+},{
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'empty',
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty',
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty',
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    }]
+},{
+    board: [{
+        squares: [{
+            type: 'empty',
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'empty',
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'empty',
+        }]
+    }]
+},{
     board: [{
         squares: [{
             type: 'plain',
@@ -213,7 +445,7 @@ export const levels = [{
             turn: 'on'
         }]
     }]
-}];
+},];
 
 // const nbLevels = 100;
 // export const levels = generateLevels();

@@ -1,0 +1,122 @@
+.square {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: 20px 0 0 20px;
+}
+.square.plain {
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+.square.plain.on.indigo {
+    background: #3F51B5;
+}
+span.indigo {
+    color: #3F51B5;
+}
+.square.plain.on.blue {
+    background: #2196F3;
+}
+span.blue {
+    color: #2196F3;
+}
+.square.plain.on.light-blue {
+    background: #03A9F4;
+}
+span.light-blue {
+    color: #03A9F4;
+}
+.square.plain.on.cyan {
+    background: #00BCD4;
+}
+span.cyan {
+    color: #00BCD4;
+}
+.square.plain.on.teal {
+    background: #009688;
+}
+span.teal {
+    color: #009688;
+}
+.square.plain.on.green {
+    background: #4CAF50;
+}
+span.green {
+    color: #4CAF50;
+}
+.square.plain.on.light-green {
+    background: #8BC34A;
+}
+span.light-green {
+    color: #8BC34A;
+}
+.square.plain.on.lime {
+    background: #CDDC39;
+}
+span.lime {
+    color: #CDDC39;
+}
+.square.plain.on.yellow {
+    background: #FFEB3B;
+}
+span.yellow {
+    color: #FFEB3B;
+}
+.square.plain.on.amber {
+    background: #FFC107;
+}
+span.amber {
+    color: #FFC107;
+}
+.square.plain.on.orange {
+    background: #FF9800;
+}
+span.orange {
+    color: #FF9800;
+}
+.square.plain.on.deep-orange {
+    background: #FF5722;
+}
+span.deep-orange {
+    color: #FF5722;
+}
+.square.plain.on.red {
+    background: #F44336;
+}
+span.brown {
+    color: #F44336;
+}
+.square.plain.on.pink {
+    background: #E91E63;
+}
+span.brown {
+    color: #E91E63;
+}
+.square.plain.on.purple {
+    background: #9C27B0;
+}
+span.brown {
+    color: #9C27B0;
+}
+.square.plain.on.deep-purple {
+    background: #673AB7;
+}
+span.brown {
+    color: #673AB7;
+}
+@media (min-width: 769px) {
+    .app-content h1 {
+        font-size: 30px;
+    }
+    .square {
+        height: 75px;
+        width: 75px;
+    }
+}
+@media (min-width: 992px) {
+    .square {
+        height: 100px;
+        width: 100px;
+    }
+}
