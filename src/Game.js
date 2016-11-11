@@ -1,14 +1,16 @@
 import React from 'react';
 import { levels, Level } from './Level';
 import { colors } from './Square';
-import './Game.css';
 
 export class Game extends React.Component {
     constructor(){
         super();
         this.state = {
-            currentLevelId: 0
-        }
+            currentLevelId: parseInt(sessionStorage.getItem('currentLevelId'), 16)
+        };
+    }
+    componentDidUpdate() {
+        sessionStorage.setItem('currentLevelId', this.state.currentLevelId);
     }
     getCurrentLevelId() {
         return this.state.currentLevelId;
@@ -47,8 +49,9 @@ export class Game extends React.Component {
         })
     }
     renderLevels() {
-        return levels.map((level, index) => {
+        return JSON.parse(sessionStorage.getItem('levels')).map((level, index) => {
             return <Level
+                level={level}
                 index={index}
                 board={level.board}
                 ref={`level-${index + 1}`}

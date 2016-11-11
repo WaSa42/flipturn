@@ -18,6 +18,15 @@ footer {
     position: fixed;
     bottom: 0;
     text-align: center;
+    color: #555;
+    font-style: italic;
+}
+footer a {
+    color: #03A9F4;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #3F51B5;
 }
 .hidden {
     display: none;

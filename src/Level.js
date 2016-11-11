@@ -14,9 +14,14 @@ export class Level extends React.Component {
     }
     componentDidMount() {
         this.setState({
+            completed: JSON.parse(sessionStorage.getItem('levels'))[this.props.index].completed,
             visible: this.props.index === this.props.getCurrentLevelId(),
         });
-
+    }
+    componentDidUpdate () {
+        const sessionLevels = JSON.parse(sessionStorage.getItem('levels'));
+        sessionLevels[this.props.index].completed = this.state.completed;
+        sessionStorage.setItem('levels', JSON.stringify(sessionLevels))
     }
     handleSuccess() {
         this.setState({completed: true});
@@ -37,7 +42,7 @@ export class Level extends React.Component {
             <div className={`level ${!this.state.visible && 'hidden'}`}>
                 <Board
                     level={this}
-                    levelId={this.props.getCurrentLevelId()}
+                    levelId={this.props.index}
                     handleSuccess={this.handleSuccess.bind(this)}
                     board={this.props.board}
                 />
@@ -47,6 +52,7 @@ export class Level extends React.Component {
 }
 
 export const levels = [{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -82,6 +88,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'empty'
@@ -115,6 +122,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'empty'
@@ -146,6 +154,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -181,6 +190,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -216,6 +226,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -249,6 +260,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -298,6 +310,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
@@ -348,6 +361,7 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'empty',
@@ -397,10 +411,11 @@ export const levels = [{
         }]
     }]
 },{
+    completed: false,
     board: [{
         squares: [{
             type: 'plain',
-            turn: 'off'
+            turn: 'on'
         },{
             type: 'plain',
             turn: 'off'
@@ -446,63 +461,3 @@ export const levels = [{
         }]
     }]
 },];
-
-// const nbLevels = 100;
-// export const levels = generateLevels();
-//
-// function generateLevels() {
-//     let levels = [];
-//     let size = 3;
-//     let generatedBoardsBySize = 0;
-//
-//     for (let i = 0; i < nbLevels; i++) {
-//         let level = designLevel(initBoard({
-//             name: `Level ${i + 1}`,
-//             size: size,
-//             success: false,
-//             board: []
-//         }));
-//
-//         generatedBoardsBySize++;
-//         level = designLevel(level);
-//         levels.push(level);
-//
-//         if (generatedBoardsBySize === Math.pow(level.size, 2)) {
-//             size++;
-//             generatedBoardsBySize = 0;
-//         }
-//     }
-//
-//     return levels;
-// }
-//
-// function initBoard(level) {
-//     for (let j = 0; j < level.size; j++) {
-//         let squares = [];
-//         for (let k = 0; k < level.size; k++) {
-//             const square = {
-//                 type: 'plain',
-//                 turn: 'off'
-//             };
-//             squares.push(square)
-//         }
-//         level.board.push({
-//             squares: squares
-//         })
-//     }
-//     return level;
-// }
-//
-// function designLevel (level) {
-//     const random = _.random(1, Math.pow(level.size));
-//     let nbSquaresOn = 0;
-//     do {
-//         const squareRow = _.random(0, level.size -1);
-//         const squareCol= _.random(0, level.size -1);
-//         if (level.board[squareRow].squares[squareCol].turn !== 'on') {
-//             level.board[squareRow].squares[squareCol].turn = 'on';
-//             nbSquaresOn++
-//         }
-//     } while (nbSquaresOn <= random);
-//     return level
-// }
