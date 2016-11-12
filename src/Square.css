@@ -84,25 +84,25 @@ span.deep-orange {
 .square.plain.on.red {
     background: #F44336;
 }
-span.brown {
+span.red {
     color: #F44336;
 }
 .square.plain.on.pink {
     background: #E91E63;
 }
-span.brown {
+span.pink {
     color: #E91E63;
 }
 .square.plain.on.purple {
     background: #9C27B0;
 }
-span.brown {
+span.purple {
     color: #9C27B0;
 }
 .square.plain.on.deep-purple {
     background: #673AB7;
 }
-span.brown {
+span.deep-purple {
     color: #673AB7;
 }
 @media (min-width: 769px) {

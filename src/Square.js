@@ -22,7 +22,7 @@ export class Square extends React.Component {
     constructor() {
         super();
         this.state = {
-            turn: 'off',
+            turn: 'off'
         };
     }
     componentDidMount() {

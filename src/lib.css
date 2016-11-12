@@ -1,0 +1,8 @@
+.swal2-modal.swal2-show {
+    background: rgba(255, 255, 255, 0.80) !important;
+}
+.swal2-icon.swal2-success .fix,
+.swal2-icon.swal2-success::before,
+.swal2-icon.swal2-success::after {
+    background: transparent;
+}

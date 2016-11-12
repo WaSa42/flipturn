@@ -9,13 +9,13 @@ export class Level extends React.Component {
         super();
         this.state = {
             completed: false,
-            visible: false,
+            visible: false
         };
     }
     componentDidMount() {
         this.setState({
             completed: JSON.parse(sessionStorage.getItem('levels'))[this.props.index].completed,
-            visible: this.props.index === this.props.getCurrentLevelId(),
+            visible: this.props.index === this.props.getCurrentLevelId()
         });
     }
     componentDidUpdate () {
@@ -25,6 +25,8 @@ export class Level extends React.Component {
     }
     handleSuccess() {
         this.setState({completed: true});
+        const last = parseInt(sessionStorage.getItem('lastLevelId'), 16);
+        sessionStorage.setItem('lastLevelId', last + 1);
         swal({
             title: "Yeah!",
             text: "Congratulation, this level is completed.",
@@ -240,12 +242,12 @@ export const levels = [{
         }]
     },{
         squares: [{
-            type: 'empty',
+            type: 'empty'
         },{
             type: 'plain',
             turn: 'off'
         },{
-            type: 'empty',
+            type: 'empty'
         }]
     },{
         squares: [{
@@ -330,17 +332,17 @@ export const levels = [{
         }]
     },{
         squares: [{
-            type: 'empty',
+            type: 'empty'
         },{
             type: 'plain',
             turn: 'off'
         },{
-            type: 'empty',
+            type: 'empty'
         },{
             type: 'plain',
             turn: 'off'
         },{
-            type: 'empty',
+            type: 'empty'
         }]
     },{
         squares: [{
@@ -364,7 +366,7 @@ export const levels = [{
     completed: false,
     board: [{
         squares: [{
-            type: 'empty',
+            type: 'empty'
         },{
             type: 'plain',
             turn: 'on'
@@ -375,7 +377,7 @@ export const levels = [{
             type: 'plain',
             turn: 'on'
         },{
-            type: 'empty',
+            type: 'empty'
         }]
     },{
         squares: [{
@@ -407,7 +409,7 @@ export const levels = [{
             type: 'plain',
             turn: 'on'
         },{
-            type: 'empty',
+            type: 'empty'
         }]
     }]
 },{
@@ -435,8 +437,7 @@ export const levels = [{
             type: 'plain',
             turn: 'off'
         },{
-            type: 'plain',
-            turn: 'off'
+            type: 'empty'
         },{
             type: 'plain',
             turn: 'off'
@@ -460,4 +461,4 @@ export const levels = [{
             turn: 'on'
         }]
     }]
-},];
+}];

@@ -1,6 +1,7 @@
 import React from 'react';
 import { levels, Level } from './Level';
 import { colors } from './Square';
+import './Game.css';
 
 export class Game extends React.Component {
     constructor(){
@@ -9,11 +10,23 @@ export class Game extends React.Component {
             currentLevelId: parseInt(sessionStorage.getItem('currentLevelId'), 16)
         };
     }
-    componentDidUpdate() {
+    componentDidUpdate(prevProps, prevState) {
+        this.goToLevel(prevState.currentLevelId, this.state.currentLevelId);
         sessionStorage.setItem('currentLevelId', this.state.currentLevelId);
     }
     getCurrentLevelId() {
         return this.state.currentLevelId;
+    }
+    goToLevel(prevLevelId, levelId) {
+        if (levelId > sessionStorage.getItem('lastLevelId'))
+            return false;
+
+        this.refs[`level-${prevLevelId + 1}`].setState({
+            visible: false
+        });
+        this.refs[`level-${levelId + 1}`].setState({
+            visible: true
+        });
     }
     previousLevel() {
         const levelId = this.getCurrentLevelId();
@@ -31,9 +44,9 @@ export class Game extends React.Component {
     }
     nextLevel() {
         const levelId = this.getCurrentLevelId();
-        if (levelId < levels.length) {
+        if (levelId < sessionStorage.getItem('lastLevelId')) {
             this.setState({
-                currentLevelId: levelId + 1,
+                currentLevelId: levelId + 1
             });
             this.refs[`level-${levelId + 1}`].setState({
                 visible: false
@@ -42,11 +55,6 @@ export class Game extends React.Component {
                 visible: true
             });
         }
-    }
-    showStar (levelCompleted) {
-        this.setState({
-            star: levelCompleted ? 'visible' : 'hidden'
-        })
     }
     renderLevels() {
         return JSON.parse(sessionStorage.getItem('levels')).map((level, index) => {
@@ -59,13 +67,12 @@ export class Game extends React.Component {
                 getCurrentLevelId={this.getCurrentLevelId.bind(this)}
                 previousLevel={this.previousLevel.bind(this)}
                 nextLevel={this.nextLevel.bind(this)}
-                showStar={this.showStar.bind(this)}
             />
         })
     }
     render() {
         let disablePrevious = this.getCurrentLevelId() === 0 && 'disabled';
-        let disableNext = this.getCurrentLevelId() === levels.length - 1 && 'disabled';
+        let disableNext = this.getCurrentLevelId() === parseInt(sessionStorage.getItem('lastLevelId'), 16) && 'disabled';
         return (
             <div className="game">
                 <h1>Everything must be <span className={colors[this.state.currentLevelId%colors.length]}>colorful!</span></h1>
@@ -73,22 +80,22 @@ export class Game extends React.Component {
                 <div className="btn-group" role="group">
                     <button
                         type="button"
-                        className="btn btn-default"
+                        className="btn btn-default btn-lg"
                         disabled={disablePrevious}
                         onClick={(e) => this.previousLevel(e)}
                     >
-                        &#x2190;
+                        <i className="fa fa-long-arrow-left"> </i>
                     </button>
-                    <button className="btn btn-default level-name">
+                    <button className="btn btn-default btn-lg level-name" onClick={this.props.toggleLevels}>
                         Level {this.state.currentLevelId + 1}
                     </button>
                     <button
                         type="button"
-                        className="btn btn-default"
+                        className="btn btn-default btn-lg"
                         disabled={disableNext}
                         onClick={(e) => this.nextLevel(e)}
                     >
-                        &#x2192;
+                        <i className="fa fa-long-arrow-right"> </i>
                     </button>
                 </div>
             </div>
