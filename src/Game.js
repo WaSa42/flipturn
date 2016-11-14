@@ -1,5 +1,5 @@
 import React from 'react';
-import { levels, Level } from './Level';
+import { Level } from './Level';
 import { colors } from './Square';
 import './Game.css';
 

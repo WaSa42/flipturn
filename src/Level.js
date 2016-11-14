@@ -206,6 +206,178 @@ export const levels = [{
         }]
     },{
         squares: [{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    }]
+},{
+    completed: false,
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    }]
+},{
+    completed: false,
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    }]
+},{
+    completed: false,
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
             type: 'plain',
             turn: 'off'
         },{
@@ -239,90 +411,6 @@ export const levels = [{
         },{
             type: 'plain',
             turn: 'off'
-        }]
-    },{
-        squares: [{
-            type: 'empty'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'empty'
-        }]
-    },{
-        squares: [{
-            type: 'plain',
-            turn: 'on'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        }]
-    }]
-},{
-    completed: false,
-    board: [{
-        squares: [{
-            type: 'plain',
-            turn: 'on'
-        },{
-            type: 'empty'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'empty'
-        },{
-            type: 'plain',
-            turn: 'on'
-        }]
-    },{
-        squares: [{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        }]
-    },{
-        squares: [{
-            type: 'plain',
-            turn: 'on'
-        },{
-            type: 'empty'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'empty'
-        },{
-            type: 'plain',
-            turn: 'on'
-        }]
-    }]
-},{
-    completed: false,
-    board: [{
-        squares: [{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
-        },{
-            type: 'plain',
-            turn: 'off'
         },{
             type: 'plain',
             turn: 'off'
@@ -428,25 +516,28 @@ export const levels = [{
             type: 'plain',
             turn: 'off'
         },{
-            type: 'empty'
+            type: 'plain',
+            turn: 'on'
         }]
     },{
         squares: [{
-            type: 'empty'
-        },{
             type: 'plain',
             turn: 'off'
         },{
             type: 'empty'
         },{
             type: 'plain',
-            turn: 'off'
+            turn: 'on'
         },{
             type: 'empty'
+        },{
+            type: 'plain',
+            turn: 'off'
         }]
     },{
         squares: [{
-            type: 'empty'
+            type: 'plain',
+            turn: 'on'
         },{
             type: 'plain',
             turn: 'off'
@@ -459,6 +550,94 @@ export const levels = [{
         },{
             type: 'plain',
             turn: 'on'
+        }]
+    }]
+},{
+    completed: false,
+    board: [{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        }]
+    },{
+        squares: [{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'on'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
+        },{
+            type: 'plain',
+            turn: 'off'
         }]
     }]
 }];
